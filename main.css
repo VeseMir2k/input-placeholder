@@ -1,6 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
 }
 
 body {
@@ -8,5 +14,69 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(31, 31, 31);
+  background-color: #1f1f1f;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+  font-size: 1.6rem;
+  color: white;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #b9b9b9;
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+input:hover {
+  border-color: #666666;
+}
+
+label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #b9b9b9;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  cursor: text;
+  transition: 0.3s;
+}
+
+input:focus + label,
+input:valid + label {
+  top: -14px;
+  font-size: 1.2rem;
+}
+
+span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+}
+
+span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+input:focus ~ span:after,
+input:valid ~ span:after {
+  left: 0;
 }
